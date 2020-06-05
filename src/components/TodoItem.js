@@ -1,19 +1,12 @@
 import React from "react";
 
-function TodoItem(props) {
-  const { title, content } = props;
-  return todoListItems(title, content);
+export default function TodoItem({ title, content, urgent }) {
+  const isUrgent = () => (urgent ? "todo-item urgent" : "todo-item");
 
-  function todoListItems(title, content) {
-    return (
-      <div>
-        <h2>{title}</h2>
-        <ul>
-          <li>{content}</li>
-        </ul>
-      </div>
-    );
-  }
+  return (
+    <li className={isUrgent()}>
+      <h3>{title}</h3>
+      <p>{content}</p>
+    </li>
+  );
 }
-
-export default TodoItem;
